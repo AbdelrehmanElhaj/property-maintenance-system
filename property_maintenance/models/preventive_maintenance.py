@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api, _
-from datetime import timedelta
+from datetime import datetime, timedelta, time
 from dateutil.relativedelta import relativedelta
 
 
@@ -126,8 +126,8 @@ class PreventiveMaintenance(models.Model):
         # Check if work order already exists for this execution date
         existing_wo = self.env['work.order'].search([
             ('preventive_maintenance_id', '=', self.id),
-            ('scheduled_date', '>=', fields.Datetime.combine(self.next_execution_date, fields.Datetime.min.time())),
-            ('scheduled_date', '<=', fields.Datetime.combine(self.next_execution_date, fields.Datetime.max.time())),
+            ('scheduled_date', '>=', datetime.combine(self.next_execution_date, time.min)),
+            ('scheduled_date', '<=', datetime.combine(self.next_execution_date, time.max)),
         ], limit=1)
         
         if existing_wo:
@@ -145,7 +145,7 @@ class PreventiveMaintenance(models.Model):
             'category_id': self.category_id.id,
             'work_type': 'internal',
             'team_id': self.team_id.id if self.team_id else False,
-            'scheduled_date': fields.Datetime.combine(self.next_execution_date, fields.Datetime.min.time()),
+            'scheduled_date': datetime.combine(self.next_execution_date, time.min),
             'state': 'scheduled',
         }
         
