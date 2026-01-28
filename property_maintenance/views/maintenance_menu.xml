@@ -6,6 +6,7 @@
         <menuitem id="menu_maintenance_root"
                   name="Maintenance"
                   sequence="50"
+                  groups="group_maintenance_user"
                   web_icon="property_maintenance,static/description/icon.png"/>
         
         <!-- Maintenance Requests -->

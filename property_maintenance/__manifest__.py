@@ -46,6 +46,8 @@
         'data/maintenance_sequence.xml',
         'data/maintenance_category_data.xml',
         'data/maintenance_stage_data.xml',
+        'data/default_user_groups.xml',
+        'data/module_installation_message.xml',
         
         # Views - Master Data
         'views/maintenance_category_views.xml',
