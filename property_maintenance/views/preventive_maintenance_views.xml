@@ -51,10 +51,5 @@
             </field>
         </record>
         
-        <record id="action_preventive_maintenance" model="ir.actions.act_window">
-            <field name="name">Preventive Maintenance</field>
-            <field name="res_model">preventive.maintenance</field>
-            <field name="view_mode">tree,form</field>
-        </record>
-    </data>
+        </data>
 </odoo>

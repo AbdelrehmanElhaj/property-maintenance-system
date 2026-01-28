@@ -68,6 +68,9 @@
         'views/technician_views.xml',
         'views/contractor_views.xml',
         
+        # Actions (must come before menu)
+        'views/maintenance_actions.xml',
+        
         # Portal
         'views/portal_templates.xml',
         

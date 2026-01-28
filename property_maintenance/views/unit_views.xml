@@ -45,10 +45,5 @@
             </field>
         </record>
         
-        <record id="action_property_unit" model="ir.actions.act_window">
-            <field name="name">Units</field>
-            <field name="res_model">property.unit</field>
-            <field name="view_mode">tree,form</field>
-        </record>
-    </data>
+        </data>
 </odoo>

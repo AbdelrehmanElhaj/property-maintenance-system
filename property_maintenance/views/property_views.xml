@@ -58,10 +58,5 @@
             </field>
         </record>
         
-        <record id="action_property_property" model="ir.actions.act_window">
-            <field name="name">Properties</field>
-            <field name="res_model">property.property</field>
-            <field name="view_mode">tree,form</field>
-        </record>
-    </data>
+        </data>
 </odoo>

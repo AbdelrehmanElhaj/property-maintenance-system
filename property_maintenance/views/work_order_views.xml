@@ -71,10 +71,5 @@
             </field>
         </record>
         
-        <record id="action_work_order" model="ir.actions.act_window">
-            <field name="name">Work Orders</field>
-            <field name="res_model">work.order</field>
-            <field name="view_mode">tree,form</field>
-        </record>
-    </data>
+        </data>
 </odoo>

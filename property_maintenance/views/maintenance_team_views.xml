@@ -34,10 +34,5 @@
             </field>
         </record>
         
-        <record id="action_maintenance_team" model="ir.actions.act_window">
-            <field name="name">Maintenance Teams</field>
-            <field name="res_model">maintenance.team</field>
-            <field name="view_mode">tree,form</field>
-        </record>
-    </data>
+        </data>
 </odoo>
