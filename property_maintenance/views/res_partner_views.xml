@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+        <!-- Inherit partner form to add property owner and tenant checkboxes -->
+        <record id="view_partner_property_form" model="ir.ui.view">
+            <field name="name">res.partner.property.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <!-- Add checkboxes after the supplier checkbox -->
+                <xpath expr="//field[@name='supplier_rank']" position="after">
+                    <field name="is_property_owner"/>
+                    <field name="is_tenant"/>
+                </xpath>
+            </field>
+        </record>
+        
+        <!-- Add filters for property owners and tenants -->
+        <record id="view_partner_property_search" model="ir.ui.view">
+            <field name="name">res.partner.property.search</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_res_partner_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//filter[@name='supplier']" position="after">
+                    <separator/>
+                    <filter string="Property Owners" name="property_owner" 
+                            domain="[('is_property_owner', '=', True)]"/>
+                    <filter string="Tenants" name="tenant" 
+                            domain="[('is_tenant', '=', True)]"/>
+                </xpath>
+            </field>
+        </record>
+        
+    </data>
+</odoo>

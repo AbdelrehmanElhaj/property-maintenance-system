@@ -50,6 +50,7 @@
         'data/module_installation_message.xml',
         
         # Views - Master Data
+        'views/res_partner_views.xml',
         'views/maintenance_category_views.xml',
         'views/maintenance_stage_views.xml',
         'views/property_views.xml',
