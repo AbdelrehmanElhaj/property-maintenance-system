@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_preventive_maintenance_tree" model="ir.ui.view">
+            <field name="name">preventive.maintenance.tree</field>
+            <field name="model">preventive.maintenance</field>
+            <field name="arch" type="xml">
+                <tree string="Preventive Maintenance Plans">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="frequency"/>
+                    <field name="next_execution_date"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="view_preventive_maintenance_form" model="ir.ui.view">
+            <field name="name">preventive.maintenance.form</field>
+            <field name="model">preventive.maintenance</field>
+            <field name="arch" type="xml">
+                <form string="Preventive Maintenance Plan">
+                    <header>
+                        <button name="action_activate" string="Activate" type="object" states="draft" class="oe_highlight"/>
+                        <button name="action_suspend" string="Suspend" type="object" states="active"/>
+                        <button name="action_generate_work_order" string="Generate Work Order" type="object" class="oe_highlight"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="code"/>
+                                <field name="category_id"/>
+                            </group>
+                            <group>
+                                <field name="frequency"/>
+                                <field name="start_date"/>
+                                <field name="next_execution_date"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="description"/>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        
+        <record id="action_preventive_maintenance" model="ir.actions.act_window">
+            <field name="name">Preventive Maintenance</field>
+            <field name="res_model">preventive.maintenance</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_property_building_tree" model="ir.ui.view">
+            <field name="name">property.building.tree</field>
+            <field name="model">property.building</field>
+            <field name="arch" type="xml">
+                <tree string="Buildings">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="property_id"/>
+                    <field name="floors"/>
+                    <field name="unit_count"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="view_property_building_form" model="ir.ui.view">
+            <field name="name">property.building.form</field>
+            <field name="model">property.building</field>
+            <field name="arch" type="xml">
+                <form string="Building">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="code"/>
+                            <field name="property_id"/>
+                            <field name="floors"/>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        
+        <record id="action_property_building" model="ir.actions.act_window">
+            <field name="name">Buildings</field>
+            <field name="res_model">property.building</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

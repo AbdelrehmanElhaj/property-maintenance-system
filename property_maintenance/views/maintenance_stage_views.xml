@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_maintenance_stage_tree" model="ir.ui.view">
+            <field name="name">maintenance.stage.tree</field>
+            <field name="model">maintenance.stage</field>
+            <field name="arch" type="xml">
+                <tree string="Maintenance Stages">
+                    <field name="sequence" widget="handle"/>
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="done"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="view_maintenance_stage_form" model="ir.ui.view">
+            <field name="name">maintenance.stage.form</field>
+            <field name="model">maintenance.stage</field>
+            <field name="arch" type="xml">
+                <form string="Maintenance Stage">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="code"/>
+                            <field name="sequence"/>
+                            <field name="done"/>
+                            <field name="fold"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <record id="action_maintenance_stage" model="ir.actions.act_window">
+            <field name="name">Maintenance Stages</field>
+            <field name="res_model">maintenance.stage</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>
