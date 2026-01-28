@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_property_asset_tree" model="ir.ui.view">
+            <field name="name">property.asset.tree</field>
+            <field name="model">property.asset</field>
+            <field name="arch" type="xml">
+                <tree string="Assets">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="asset_type"/>
+                    <field name="unit_id"/>
+                    <field name="status"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="view_property_asset_form" model="ir.ui.view">
+            <field name="name">property.asset.form</field>
+            <field name="model">property.asset</field>
+            <field name="arch" type="xml">
+                <form string="Asset">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="code"/>
+                                <field name="asset_type"/>
+                                <field name="status"/>
+                            </group>
+                            <group>
+                                <field name="property_id"/>
+                                <field name="building_id"/>
+                                <field name="unit_id"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        
+        </data>
+</odoo>
