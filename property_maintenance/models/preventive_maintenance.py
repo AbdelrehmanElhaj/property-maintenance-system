@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api, _
+from odoo.exceptions import ValidationError
 from datetime import datetime, timedelta, time
 from dateutil.relativedelta import relativedelta
 
@@ -15,7 +16,7 @@ class PreventiveMaintenance(models.Model):
     code = fields.Char(string='Plan Code', required=True, tracking=True)
     description = fields.Text(string='Description')
     
-    property_id = fields.Many2one('property.property', string='Property', tracking=True)
+    property_id = fields.Many2one('property.property', string='Property', required=True, tracking=True)
     building_id = fields.Many2one('property.building', string='Building', tracking=True)
     unit_id = fields.Many2one('property.unit', string='Unit', tracking=True)
     asset_id = fields.Many2one('property.asset', string='Asset', tracking=True)
@@ -121,7 +122,10 @@ class PreventiveMaintenance(models.Model):
         self.ensure_one()
         
         if not self.next_execution_date:
-            return False
+            raise ValidationError(_('Next execution date is required to generate work order.'))
+        
+        if not self.property_id:
+            raise ValidationError(_('Property is required to generate work order.'))
         
         # Check if work order already exists for this execution date
         existing_wo = self.env['work.order'].search([

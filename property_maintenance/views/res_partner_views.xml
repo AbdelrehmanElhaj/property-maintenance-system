@@ -8,10 +8,14 @@
             <field name="model">res.partner</field>
             <field name="inherit_id" ref="base.view_partner_form"/>
             <field name="arch" type="xml">
-                <!-- Add checkboxes in the sales & purchases group -->
-                <xpath expr="//field[@name='category_id']" position="after">
-                    <field name="is_property_owner"/>
-                    <field name="is_tenant"/>
+                <!-- Add checkboxes in a new group at the end of the sheet -->
+                <xpath expr="//sheet" position="inside">
+                    <group name="property_info" string="Property Information">
+                        <group>
+                            <field name="is_property_owner"/>
+                            <field name="is_tenant"/>
+                        </group>
+                    </group>
                 </xpath>
             </field>
         </record>
